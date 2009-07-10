@@ -31,9 +31,9 @@ Patch5:		%{name}-arith.patch
 # from http://sylvana.net/jpegcrop/croppatch.tar.gz
 Patch6:		%{name}-crop.patch
 URL:		http://www.ijg.org/
-Obsoletes:	libjpeg <= 6b
-Provides:	libjpeg = %{version}-%{release}
 BuildRequires:	libtool
+Provides:	libjpeg = %{version}-%{release}
+Obsoletes:	libjpeg <= 6b
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -81,8 +81,8 @@ Summary(tr.UTF-8):	libjpeg için geliştirme kitaplıkları ve başlık dosyalar
 Summary(uk.UTF-8):	Хедери для розробки програм, що використовують libjpeg
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Obsoletes:      libjpeg-devel <= 6b
-Provides:       libjpeg-devel = %{version}-%{release}
+Provides:	libjpeg-devel = %{version}-%{release}
+Obsoletes:	libjpeg-devel <= 6b
 
 %description devel
 The libjpeg-devel package includes the header files necessary for
@@ -131,8 +131,8 @@ Summary(ru.UTF-8):	Статическая библиотека для прогр
 Summary(uk.UTF-8):	Статична бібліотека для програмування з libjpeg
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
-Obsoletes:      libjpeg-static <= 6b
-Provides:       libjpeg-static = %{version}-%{release}
+Provides:	libjpeg-static = %{version}-%{release}
+Obsoletes:	libjpeg-static <= 6b
 
 %description static
 Static library for developing programs using libjpeg.
@@ -158,8 +158,8 @@ Summary(fr.UTF-8):	Clients simples pour manipuler des images JPEG
 Summary(pl.UTF-8):	Kilka prostych programów do manipulowania na plikach JPEG
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Obsoletes:      libjpeg-progs <= 6b
-Provides:       libjpeg-progs = %{version}-%{release}
+Provides:	libjpeg-progs = %{version}-%{release}
+Obsoletes:	libjpeg-progs <= 6b
 
 %description progs
 Simple clients for manipulating JPEG images. Libjpeg client programs
