@@ -228,7 +228,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README change.log %{?with_arith:README.arithmetic}
+%doc README README.6b2 change.log %{?with_arith:README.arithmetic}
 %attr(755,root,root) %{_libdir}/libjpeg.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libjpeg.so.62
 
