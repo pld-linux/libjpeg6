@@ -1,18 +1,3 @@
---- jpeg-6b/configure	1998-03-21 21:08:57.000000000 +0200
-+++ jpeg-6b.libtool/configure	2006-10-23 17:03:19.529255759 +0300
-@@ -1529,10 +1529,10 @@
- 
- if test "x$LTSHARED" != xno  -o  "x$LTSTATIC" != xno; then
-   USELIBTOOL="yes"
--  LIBTOOL="./libtool"
-+  LIBTOOL="libtool"
-   O="lo"
-   A="la"
--  LN='$(LIBTOOL) --mode=link $(CC)'
-+  LN='$(LIBTOOL) --tag=CC --mode=link $(CC)'
-   INSTALL_LIB='$(LIBTOOL) --mode=install ${INSTALL}'
-   INSTALL_PROGRAM="\$(LIBTOOL) --mode=install $INSTALL_PROGRAM"
- else
 --- jpeg-6b/makefile.cfg	2006-10-23 17:04:59.081491199 +0300
 +++ jpeg-6b.libtool/makefile.cfg	2006-10-23 17:04:27.360778917 +0300
 @@ -140,7 +140,7 @@

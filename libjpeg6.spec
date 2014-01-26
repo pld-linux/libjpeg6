@@ -1,3 +1,5 @@
+# TODO: check if symbol versioning doesn't break old applications
+#       (linked against unversioned libjpeg.so.62); disable versioning in such case
 #
 # Conditional build:
 %bcond_with	arith	# arithmetic coding support (changes error codes in ABI, patent problems somewhere)
@@ -13,16 +15,15 @@ Summary(ru.UTF-8):	Библиотека для обработки различн
 Summary(tr.UTF-8):	JPEG resimlerini işleme kitaplığı
 Summary(uk.UTF-8):	Бібліотека для обробки різноманітних JPEG-файлів
 Name:		libjpeg6
-Version:	6b
+Version:	6b2
 Release:	1
 License:	distributable
 Group:		Libraries
-Source0:	ftp://ftp.uu.net/graphics/jpeg/jpegsrc.v%{version}.tar.gz
-# Source0-md5:	dbd5f3b47ed13132f04c685d608a7547
+Source0:	http://jpegclub.org/support/files/jpegsrc.v%{version}.tar.gz
+# Source0-md5:	f453ae54062c14b0b8deec9c7de6cf58
 Source1:	http://www.mif.pg.gda.pl/homepages/ankry/man-PLD/libjpeg-non-english-man-pages.tar.bz2
 # Source1-md5:	d6342c015a489de275ada637a77dc2b0
 Patch0:		%{name}-DESTDIR.patch
-Patch1:		%{name}-arm.patch
 Patch2:		%{name}-include.patch
 Patch3:		%{name}-c++.patch
 Patch4:		%{name}-libtool.patch
@@ -185,7 +186,6 @@ tekstowe dołączone do pliku JPEG, a wrjpgcom wstawia takie komentarze.
 %prep
 %setup -q -n jpeg-%{version}
 %patch0 -p1
-%patch1 -p1
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
@@ -197,8 +197,7 @@ tekstowe dołączone do pliku JPEG, a wrjpgcom wstawia takie komentarze.
 	--enable-shared \
 	--enable-static
 
-%{__make} \
-	libdir=%{_libdir}
+%{__make}
 
 LD_PRELOAD=$PWD/.libs/%{name}.so \
 %{__make} test
@@ -207,8 +206,7 @@ LD_PRELOAD=$PWD/.libs/%{name}.so \
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_libdir},%{_includedir},%{_bindir},%{_mandir}/man1}
 
-%{__make} install install-headers install-lib \
-	libdir=%{_libdir} \
+%{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 install jversion.h $RPM_BUILD_ROOT%{_includedir}
