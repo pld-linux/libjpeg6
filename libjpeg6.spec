@@ -185,10 +185,10 @@ tekstowe dołączone do pliku JPEG, a wrjpgcom wstawia takie komentarze.
 
 %prep
 %setup -q -n jpeg-%{version}
-%patch0 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p1
+%patch -P0 -p1
+%patch -P2 -p1
+%patch -P3 -p1
+%patch -P4 -p1
 %{?with_arith:%patch5 -p1}
 %{?with_crop:%patch6 -p1}
 
